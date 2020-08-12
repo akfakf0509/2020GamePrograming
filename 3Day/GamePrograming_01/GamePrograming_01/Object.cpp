@@ -53,24 +53,24 @@ void Object::RemoveChild(Object * object){
 bool Object::IsCollisionRect(D3DXVECTOR2 p1, D3DXVECTOR2 p2, RECT r1, RECT r2) {
 	RECT r;
 
-	r1.left += p1.x;
-	r1.right += p1.x;
-	r1.top += p1.y;
-	r1.bottom += p1.y;
+	r1.left += (LONG)p1.x;
+	r1.right += (LONG)p1.x;
+	r1.top += (LONG)p1.y;
+	r1.bottom += (LONG)p1.y;
 
-	r2.left += p2.x;
-	r2.right += p2.x;
-	r2.top += p2.y;
-	r2.bottom += p2.y;
+	r2.left += (LONG)p2.x;
+	r2.right += (LONG)p2.x;
+	r2.top += (LONG)p2.y;
+	r2.bottom += (LONG)p2.y;
 
 	return IntersectRect(&r, &r1, &r2);
 }
 
 bool Object::IsPointInRect(D3DXVECTOR2 p, RECT r, D3DXVECTOR2 pt) {
-	r.left += p.x;
-	r.right += p.x;
-	r.top += p.y;
-	r.bottom += p.y;
+	r.left += (LONG)p.x;
+	r.right += (LONG)p.x;
+	r.top += (LONG)p.y;
+	r.bottom += (LONG)p.y;
 
 	return (pt.x > r.left && pt.x < r.right&& pt.y > r.top && pt.y < r.bottom);
 }
@@ -84,11 +84,11 @@ D3DXVECTOR2 Object::getPos() {
 }
 
 int Object::getPosX() {
-	return pos.x;
+	return (int)pos.x;
 }
 
 int Object::getPosY() {
-	return pos.y;
+	return (int)pos.y;
 }
 
 void Object::setParent(Object* object) {
@@ -96,8 +96,8 @@ void Object::setParent(Object* object) {
 }
 
 void Object::setPos(int x, int y) {
-	pos.x = x;
-	pos.y = y;
+	pos.x = (FLOAT)x;
+	pos.y = (FLOAT)y;
 }
 
 void Object::setPos(D3DXVECTOR2 pos) {
