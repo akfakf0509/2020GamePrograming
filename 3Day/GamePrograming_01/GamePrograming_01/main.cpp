@@ -13,6 +13,8 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR, INT cmdS
 		console.CloseConsole();
 	}
 
+	std::cout << "Hello World" << std::endl;
+
 	app.InitWindow(hInstance);
 	app.InitD3D(app.FloatWindow(hInstance, cmdShow));
 

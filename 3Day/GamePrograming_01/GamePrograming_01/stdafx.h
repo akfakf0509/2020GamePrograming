@@ -1,8 +1,8 @@
 #pragma once
 
 #define CONSOLE_OFF false
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 768
+#define SCREEN_WIDTH 1080
+#define SCREEN_HEIGHT 720
 #define BG_COLOR D3DCOLOR_ARGB(255,255,255,255)
 #define PROGRAM_NAME TEXT("Engine")
 #define CONSOLE_NAME TEXT("Console")
