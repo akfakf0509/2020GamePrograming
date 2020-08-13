@@ -120,7 +120,7 @@ void Application::ReleaseD3D() {
 }
 
 float Application::getDeltaTime() {
-	QueryPerformanceFrequency(&currentInterval);
+	QueryPerformanceCounter(&currentInterval);
 	LONGLONG interval = (currentInterval.QuadPart - beforeInterval.QuadPart);
 	float dTime = (float)interval / (float)Frequency.QuadPart;
 	beforeInterval = currentInterval;

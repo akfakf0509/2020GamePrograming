@@ -29,7 +29,7 @@ void Animation::Render() {
 }
 
 void Animation::Update(float dTime) {
-	timeChecker = dTime;
+	timeChecker += dTime;
 
 	if (timeChecker > 1.f / fps) {
 		timeChecker = 0;
@@ -41,7 +41,7 @@ void Animation::Update(float dTime) {
 	}
 }
 
-void Animation::AddFrame(char* path) {
+void Animation::AddFrame(const char* path) {
 	spriteVector.push_back(new Sprite(path));
 
 	AddChild(spriteVector[maxFrame]);

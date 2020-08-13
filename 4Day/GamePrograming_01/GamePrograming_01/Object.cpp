@@ -50,18 +50,18 @@ void Object::RemoveChild(Object* object) {
 	object->parent = nullptr;
 }
 
-bool Object::IsCollisionRect(D3DXVECTOR2 p1, D3DXVECTOR2 p2, RECT r1, RECT r2) {
-	RECT r;
+bool Object::IsCollisionRect(Object* object) {
+	RECT r, r1 = rect, r2 = object->getRect();
 
-	r1.left += (LONG)p1.x;
-	r1.right += (LONG)p1.x;
-	r1.top += (LONG)p1.y;
-	r1.bottom += (LONG)p1.y;
+	r1.left += (LONG)pos.x;
+	r1.right += (LONG)pos.x;
+	r1.top += (LONG)pos.y;
+	r1.bottom += (LONG)pos.y;
 
-	r2.left += (LONG)p2.x;
-	r2.right += (LONG)p2.x;
-	r2.top += (LONG)p2.y;
-	r2.bottom += (LONG)p2.y;
+	r2.left += (LONG)object->getPos().x;
+	r2.right += (LONG)object->getPos().x;
+	r2.top += (LONG)object->getPos().y;
+	r2.bottom += (LONG)object->getPos().y;
 
 	return IntersectRect(&r, &r1, &r2);
 }
@@ -76,6 +76,10 @@ D3DXMATRIX Object::getMat() {
 
 D3DXVECTOR2 Object::getPos() {
 	return pos;
+}
+
+RECT Object::getRect() {
+	return rect;
 }
 
 int Object::getPosX() {
